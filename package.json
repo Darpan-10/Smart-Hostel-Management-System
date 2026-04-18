@@ -1,0 +1,16 @@
+{
+  "name": "hostel-mern",
+  "version": "1.0.0",
+  "description": "Smart Hostel Management & Complaint Automation System",
+  "scripts": {
+    "install:all": "cd backend && npm install && cd ../frontend && npm install",
+    "seed":        "cd backend && npm run seed",
+    "seed:reset":  "cd backend && npm run seed:reset",
+    "backend":     "cd backend && npm run dev",
+    "frontend":    "cd frontend && npm start",
+    "dev":         "concurrently \"npm run backend\" \"npm run frontend\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.0.1"
+  }
+}
