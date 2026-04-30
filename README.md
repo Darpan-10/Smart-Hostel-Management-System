@@ -12,35 +12,39 @@ A comprehensive MERN stack (MongoDB, Express, React, Node.js) application tailor
 - **Secure Authentication:** JWT-based user authentication spanning protected routes.
 
 ## Tech Stack
-- **Frontend:** React.js, React Router DOM, Axios, Custom CSS (Inter Font, CSS variables, sleek UI design system)
+- **Frontend:** React.js (Vite), React Router DOM, Axios, Custom CSS (Inter Font, CSS variables, sleek UI design system)
 - **Backend:** Node.js, Express.js
 - **Database:** MongoDB, Mongoose
 - **Authentication:** JSON Web Tokens (JWT), bcryptjs
 
 ## File Structure
 ```text
-hostel-mern/
+Smart-Hostel-Management-System/
 ├── backend/                  # Server-side code (Node.js & Express)
-│   ├── controllers/          # Request handlers
-│   ├── middleware/           # Custom middlewares (e.g., JWT Auth)
-│   ├── models/               # Mongoose database schemas
+│   ├── controllers/          # Business logic for routes
+│   ├── middleware/           # JWT Auth & route protection
+│   ├── models/               # MongoDB Mongoose schemas
 │   ├── routes/               # API endpoint definitions
 │   ├── .env.example          # Sample environment variables
 │   ├── seed.js               # Database seeding script
-│   └── server.js             # Express application entry point
+│   └── server.js             # Application entry point
 │
-├── frontend/                 # Client-side code (React)
-│   ├── public/               # Static files and root HTML
+├── frontend/                 # Client-side code (React + Vite)
+│   ├── public/               # Static assets (icons, root HTML)
 │   ├── src/
-│   │   ├── components/       # Reusable UI components (NavBar, styled elements)
-│   │   ├── context/          # React Context (AuthContext)
-│   │   ├── pages/            # Distinct dashboards and Views (Login, Register, Admin, etc.)
-│   │   ├── api.js            # Axios configuration & interceptors
-│   │   ├── App.js            # Main React component and Route guarding
-│   │   └── index.css         # Global design system & style properties
+│   │   ├── assets/           # Images & UI icons
+│   │   ├── components/       # UI building blocks (.jsx)
+│   │   ├── context/          # Auth state management
+│   │   ├── pages/            # View components for dashboards
+│   │   ├── api.jsx           # API client configuration
+│   │   ├── App.jsx           # Route definitions
+│   │   ├── main.jsx          # Frontend entry point
+│   │   └── index.css         # Global styles
+│   ├── index.html            # Vite HTML template
+│   ├── vite.config.js        # Vite build configuration
 │   └── package.json          # Frontend dependencies
 │
-└── package.json              # Root project configs (using concurrently to run both ends)
+└── package.json              # Root config for running both ends
 ```
 
 ## How to Start the Application
@@ -85,7 +89,7 @@ npm install
    - **Windows:** Run `net start MongoDB` as Administrator, or start it via the Services app.
    - **Linux/macOS:** Run `sudo systemctl start mongod` or `brew services start mongodb-community`.
    
-2. Once MongoDB is active, traverse back to the root folder `hostel-mern/` and run the development environment using node `concurrently` (which will spin up **both** the backend and frontend simultaneously):
+2. Once MongoDB is active, traverse back to the root folder `hostel-mern/` and run the development environment using node `concurrently` (which will spin up **both** the backend and the Vite-powered frontend simultaneously):
 ```bash
 # Go to root directory
 cd ../
@@ -94,7 +98,7 @@ cd ../
 npm run dev
 ```
 
-The React frontend will be accessible at `http://localhost:3000` and the Node backend will run on `http://localhost:5000`.
+The Vite frontend will be accessible at `http://localhost:3000` and the Node backend will run on `http://localhost:5000`.
 
 ### 5. Seeding the Database (Optional)
 If you want to populate the database with initial fake data to test out testing operations and layouts:
